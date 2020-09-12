@@ -4,6 +4,8 @@ body{
     font-weight: 600;
 }
 
+/* Datatable */
+
 .dataTables_length{
     display: none;
 }
@@ -13,46 +15,58 @@ body{
     text-align: right;
 }
 
+thead tr{
+    background: #37bac745;
+}
+
+/* Tab */
+
+.blueColor {
+    color: #1185d8;
+    font-weight: 600;
+}
+
 .tab-pane{
     padding: 10px;
     background: #f1f1f1;
 }
 
 .nav-tabs .nav-link.active, .nav-tabs .nav-item.show .nav-link {
-    color: #0eb3d8;
+    color: #1185d8;
     background-color: #f1f1f1;
     border-width: 4px;
-    border-color: #0eb3d8 #0eb3d8 #fff;
+    border-color: #1185d8 #1185d8 #fff;
 }
 
 .nav-tabs .nav-link {
     border: 1px solid #033a46;
-    background: #0eb3d8;
+    background: #1185d8;
     color:#fff;
 }
 
 .nav-tabs {
-    border-bottom: 1px solid #0eb3d8;
+    border-bottom: 1px solid #1185d8;
 }
 
-thead tr{
-    background: #37bac745;
-}
+/* Modal */
 
 .border-right {
     border-right: 3px solid #ccc !important;
 }
 
 .modal-header{
-    background: #0eb3d8;
+    background: #1185d8;
     color: #fff;
 }
 .close{
-    padding: 5px;
-    margin: 5px;
-    border:none;
+    padding: 5px 8px !important;
+    margin: 10px;
+    border:none !important;
     color: #fff;
+    border-radius: 100%;
 }
+
+/* Form */ 
 
 .form-control{
     display: inline-block;
@@ -61,4 +75,11 @@ thead tr{
 
 label{
     margin: 8px 0;
+}
+
+.deleteBtn{
+    position: absolute;
+    top: 8px;
+    right: 15px;
+    z-index: 999;
 }

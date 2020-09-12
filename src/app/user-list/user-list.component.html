@@ -1,41 +1,5 @@
 <div class="container">
-    <div class="btn btn-success" (click)="open(content)"> Update </div>
-    <!-- <table class="table table-bordered table-striped">
-        <thead>
-            <tr>
-                <th>Firstname</th>
-                <th>Lastname</th>
-                <th>Email</th>
-                <th> Action </th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>John</td>
-                <td>Doe</td>
-                <td>john@example.com</td>
-                <td>
-                    <div class="btn btn-success" (click)="open(content)"> Update </div>
-                </td>
-            </tr>
-            <tr>
-                <td>Mary</td>
-                <td>Moe</td>
-                <td>mary@example.com</td>
-                <td>
-                    <div class="btn btn-success" (click)="open(content)"> Update </div>
-                </td>
-            </tr>
-            <tr>
-                <td>July</td>
-                <td>Dooley</td>
-                <td>july@example.com</td>
-                <td>
-                    <div class="btn btn-success" (click)="open(content)"> Update </div>
-                </td>
-            </tr>
-        </tbody>
-    </table> -->
+    <div class="btn btn-success mt-3" (click)="open(content)"> Open Modal </div>
 </div>
 
 
@@ -50,8 +14,12 @@
         <ngb-tabset [destroyOnHide]="false">
             <ngb-tab title="Immunization Alert">
                 <ng-template ngbTabContent>
+                    <h5 class="blueColor"> Immunization Alert </h5>
                     <div class="row">
                         <div class="col-lg-8 col-md-8 border-right">
+                            <button class="float-right deleteBtn" (click)="deleteRow(dataId)"> Delete</button>
+
+                            <!-- Data-Table Start -->
                             <table id="dataTable" class="table table-bordered display" style="width:100%">
                                 <thead>
                                     <tr>
@@ -62,16 +30,23 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr *ngFor="let user of userData">
-                                        <td> {{ user.id }} </td>
-                                        <td> {{ user.name }} {{ user.name }}</td>
+                                    <tr *ngFor="let user of userData;let i = index">
+                                        <td> 
+                                            <input type="checkbox" (change)="checkValue(user.id)" /> 
+                                            {{ user.id }}
+                                        </td>
+                                        <td> {{ user.name }}</td>
                                         <td> {{ user.description }} </td>
                                         <td> {{ user.webReference }} </td>
                                     </tr>
                                 </tbody>
                             </table>
+                            <!-- Data-Table End -->
                         </div>
                         <div class="col-lg-4 col-md-4">
+
+                            <!-- Add Record Form Start -->
+
                             <form name="myForm" [formGroup]="myForm" novalidate (ngSubmit)="onSubmit()">
                                 <div class="form-group">
                                     <label>Name</label>
@@ -92,18 +67,22 @@
                                     <input type="text" class="form-control float-right" name="web_ref" formControlName="webReference">
                                     <small class="form-text text-danger float-right"
                                     *ngIf="!myForm.get('webReference').valid && (myForm.get('webReference').dirty || myForm.get('webReference').touched) && myForm.get('webReference').hasError('required')">This
-                                    field is required.!</small>                                    
+                                    field is required.!</small><br><br>                                    
                                 </div>
                                 <div class="form-group">
                                     <button [disabled]="!myForm.valid" class="float-right"> Add </button>
                                 </div>                                                                                                
                             </form>
+
+                            <!-- Add Record Form End -->
                         </div>
                     </div>
                 </ng-template>
             </ngb-tab>
-            <ngb-tab title="Lab Alerta">
-                <ng-template ngbTabContent class="p-3">Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin
+            <ngb-tab title="Lab Alerts">
+                <ng-template ngbTabContent class="p-3">
+                    <h5 class="blueColor"> Lab Alerts </h5>
+                    Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin
                     coffee squid.
                     <p>Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four
                         loko farm-to-table
@@ -120,6 +99,7 @@
             </ngb-tab>
             <ngb-tab title="DI Alerts">
                 <ng-template ngbTabContent>
+                    <h5 class="blueColor"> DI Alerts </h5>
                     <p>Sed commodo, leo at suscipit dictum, quam est porttitor sapien, eget sodales nibh elit id diam.
                         Nulla facilisi. Donec egestas ligula vitae odio interdum aliquet. Duis lectus turpis, luctus
                         eget tincidunt eu, congue et odio. Duis pharetra et nisl at faucibus. Quisque luctus pulvinar
@@ -132,6 +112,7 @@
             </ngb-tab>
             <ngb-tab title="Procedure Alerts">
                 <ng-template ngbTabContent>
+                    <h5 class="blueColor"> Procedure Alerts </h5>
                     <p>Sed commodo, leo at suscipit dictum, quam est porttitor sapien, eget sodales nibh elit id diam.
                         Nulla facilisi. Donec egestas ligula vitae odio interdum aliquet. Duis lectus turpis, luctus
                         eget tincidunt eu, congue et odio. Duis pharetra et nisl at faucibus. Quisque luctus pulvinar
@@ -144,6 +125,7 @@
             </ngb-tab>
             <ngb-tab title="Rx Specific Alerts">
                 <ng-template ngbTabContent>
+                    <h5 class="blueColor"> Rx Specific Alerts </h5>
                     <p>Sed commodo, leo at suscipit dictum, quam est porttitor sapien, eget sodales nibh elit id diam.
                         Nulla facilisi. Donec egestas ligula vitae odio interdum aliquet. Duis lectus turpis, luctus
                         eget tincidunt eu, congue et odio. Duis pharetra et nisl at faucibus. Quisque luctus pulvinar
@@ -156,6 +138,7 @@
             </ngb-tab>
             <ngb-tab title="Dx Specific Alerts">
                 <ng-template ngbTabContent>
+                    <h5 class="blueColor"> Dx Specific Alerts </h5>
                     <p>Sed commodo, leo at suscipit dictum, quam est porttitor sapien, eget sodales nibh elit id diam.
                         Nulla facilisi. Donec egestas ligula vitae odio interdum aliquet. Duis lectus turpis, luctus
                         eget tincidunt eu, congue et odio. Duis pharetra et nisl at faucibus. Quisque luctus pulvinar
@@ -168,6 +151,7 @@
             </ngb-tab>
             <ngb-tab title="Patient Specific Alerts">
                 <ng-template ngbTabContent>
+                    <h5 class="blueColor"> Patient Specific Alerts </h5>
                     <p>Sed commodo, leo at suscipit dictum, quam est porttitor sapien, eget sodales nibh elit id diam.
                         Nulla facilisi. Donec egestas ligula vitae odio interdum aliquet. Duis lectus turpis, luctus
                         eget tincidunt eu, congue et odio. Duis pharetra et nisl at faucibus. Quisque luctus pulvinar
