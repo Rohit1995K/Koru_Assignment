@@ -1,0 +1,64 @@
+
+body{
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.dataTables_length{
+    display: none;
+}
+
+.dataTables_wrapper .dataTables_filter {
+    float: left;
+    text-align: right;
+}
+
+.tab-pane{
+    padding: 10px;
+    background: #f1f1f1;
+}
+
+.nav-tabs .nav-link.active, .nav-tabs .nav-item.show .nav-link {
+    color: #0eb3d8;
+    background-color: #f1f1f1;
+    border-width: 4px;
+    border-color: #0eb3d8 #0eb3d8 #fff;
+}
+
+.nav-tabs .nav-link {
+    border: 1px solid #033a46;
+    background: #0eb3d8;
+    color:#fff;
+}
+
+.nav-tabs {
+    border-bottom: 1px solid #0eb3d8;
+}
+
+thead tr{
+    background: #37bac745;
+}
+
+.border-right {
+    border-right: 3px solid #ccc !important;
+}
+
+.modal-header{
+    background: #0eb3d8;
+    color: #fff;
+}
+.close{
+    padding: 5px;
+    margin: 5px;
+    border:none;
+    color: #fff;
+}
+
+.form-control{
+    display: inline-block;
+    width: 70%;
+}
+
+label{
+    margin: 8px 0;
+}
